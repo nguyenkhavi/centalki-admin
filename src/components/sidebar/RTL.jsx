@@ -25,7 +25,7 @@ const Sidebar = ({ open, onClose }) => {
           Horizon <span class="font-medium">FREE</span>
         </div>
       </div>
-      <div class="mt-[58px] mb-7 h-px bg-gray-300 dark:bg-white/30" />
+      <div class="mb-7 mt-[58px] h-px bg-gray-300 dark:bg-white/30" />
       {/* Nav item */}
 
       <ul className="mb-auto pt-1">
@@ -33,9 +33,9 @@ const Sidebar = ({ open, onClose }) => {
       </ul>
 
       {/* Free Horizon Card */}
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <SidebarCard />
-      </div>
+      </div> */}
 
       {/* Nav item end */}
     </div>
