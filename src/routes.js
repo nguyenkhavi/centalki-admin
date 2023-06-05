@@ -16,7 +16,9 @@ import {
   MdBarChart,
   MdPerson,
   MdLock,
+  MdWork,
 } from "react-icons/md";
+import TeacherManagement from "views/admin/teacher-management";
 
 const routes = [
   {
@@ -32,6 +34,14 @@ const routes = [
     path: "nft-marketplace",
     icon: <MdOutlineShoppingCart className="h-6 w-6" />,
     component: <NFTMarketplace />,
+    secondary: true,
+  },
+  {
+    name: "Teacher Management",
+    layout: "/admin",
+    path: "teacher-management",
+    icon: <MdWork className="h-6 w-6" />,
+    component: <TeacherManagement />,
     secondary: true,
   },
   {
