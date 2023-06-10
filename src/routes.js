@@ -17,8 +17,10 @@ import {
   MdPerson,
   MdLock,
   MdWork,
+  MdPeople,
 } from "react-icons/md";
 import TeacherManagement from "views/admin/teacher-management";
+import StudentManagement from "views/admin/student-management";
 
 const routes = [
   {
@@ -42,6 +44,14 @@ const routes = [
     path: "teacher-management",
     icon: <MdWork className="h-6 w-6" />,
     component: <TeacherManagement />,
+    secondary: true,
+  },
+  {
+    name: "Student Management",
+    layout: "/admin",
+    path: "student-management",
+    icon: <MdPeople className="h-6 w-6" />,
+    component: <StudentManagement />,
     secondary: true,
   },
   {

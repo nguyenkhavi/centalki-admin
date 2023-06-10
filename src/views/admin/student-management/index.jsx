@@ -1,6 +1,6 @@
-import ComplexTable from "./components/TeacherTable";
 import { useGetUsers } from "state/user";
 import { useMemo } from "react";
+import StudentTable from "./components/StudentTable";
 import dayjs from "dayjs";
 
 const columnsDataComplex = [
@@ -30,8 +30,10 @@ const columnsDataComplex = [
   // },
 ];
 
-const TeacherManagement = () => {
-  const { data = [], refetch } = useGetUsers({});
+const StudentManagement = () => {
+  const { data = [], refetch } = useGetUsers({
+    role: "STUDENT",
+  });
   const tableData = useMemo(
     () =>
       data.map((item) => ({
@@ -51,7 +53,7 @@ const TeacherManagement = () => {
   return (
     <div>
       <div className="mt-5 grid h-full grid-cols-1 gap-5 md:grid-cols-1">
-        <ComplexTable
+        <StudentTable
           onRefresh={refetch}
           columnsData={columnsDataComplex}
           tableData={tableData}
@@ -61,4 +63,4 @@ const TeacherManagement = () => {
   );
 };
 
-export default TeacherManagement;
+export default StudentManagement;

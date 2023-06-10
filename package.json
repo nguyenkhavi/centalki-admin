@@ -17,6 +17,7 @@
     "@testing-library/user-event": "^13.5.0",
     "apexcharts": "3.35.5",
     "axios": "^1.4.0",
+    "dayjs": "^1.11.8",
     "firebase": "^9.22.1",
     "framer-motion": "^7.10.2",
     "react": "^18.2.0",
