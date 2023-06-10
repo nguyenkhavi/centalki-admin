@@ -3,7 +3,7 @@ import { baseAxios } from "service/axios";
 
 export const useGetUsers = ({ role = "TEACHER", ...arg }) => {
   return useQuery(
-    ["USER/VALIDATE_ROLE"],
+    ["USER/VALIDATE_ROLE", role],
     () => {
       return baseAxios
         .get(`/admin/users`, {
