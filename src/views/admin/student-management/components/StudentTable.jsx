@@ -8,6 +8,9 @@ import {
 import { useMemo, useState } from "react";
 
 import { BsPlus } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
+import { IoMdMail } from "react-icons/io";
+import { FaFacebook, FaApple } from "react-icons/fa";
 import InputField from "components/fields/InputField";
 import { useApproveTeacher } from "state/user";
 import { toast } from "react-toastify";
@@ -112,6 +115,31 @@ const StudentTable = (props) => {
                             style: "currency",
                             currency: "VND",
                           })}
+                        </p>
+                      );
+                    } else if (cell.column.id === "provider") {
+                      if (cell.value === "google.com") {
+                        const style = { fontSize: "1.5em" };
+                        data = <FcGoogle style={style} />;
+                      } else if (cell.value === "facebook.com") {
+                        const style = { color: "#0165E1", fontSize: "1.5em" };
+                        data = <FaFacebook style={style} />;
+                      } else if (cell.value === "apple.com") {
+                        const style = { fontSize: "1.5em" };
+                        data = <FaApple style={style} />;
+                      } else if (cell.value === "password") {
+                        const style = { color: "grey", fontSize: "1.5em" };
+                        data = <IoMdMail style={style} />;
+                      } else
+                        data = (
+                          <p className="flex items-center gap-2 text-sm font-bold text-navy-700 dark:text-white">
+                            {cell.value}
+                          </p>
+                        );
+                    } else if (cell.column.id === "createdAt") {
+                      data = (
+                        <p className="flex items-center gap-2 text-sm font-bold text-navy-700 dark:text-white">
+                          {cell.value.toLocaleString("vi")}
                         </p>
                       );
                     } else

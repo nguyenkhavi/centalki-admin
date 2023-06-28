@@ -13,8 +13,13 @@ const columnsDataComplex = [
     accessor: "email",
   },
   {
+    Header: "PROVIDERS",
+    accessor: "provider",
+  },
+  {
     Header: "CREATED AT",
     accessor: "createdAt",
+    sortType: "datetime",
   },
   // {
   //   Header: "TOTAL EARNINGS",
@@ -40,8 +45,10 @@ const StudentManagement = () => {
         name: item.displayName,
         email: item.email,
         createdAt: item.metadata?.creationTime
-          ? dayjs(item.metadata.creationTime).format("DD MMM YYYY HH:mm A")
+          ? // ? dayjs(item.metadata.creationTime).format("DD MMM YYYY HH:mm A")
+            new Date(dayjs(item.metadata.creationTime))
           : "",
+        provider: item.providerData[0].providerId,
         // earnings: item.detail?.currentEarnings || "",
         // rating: `${item.detail.average || 0} (${
         //   item.detail.ratingCount || 0
