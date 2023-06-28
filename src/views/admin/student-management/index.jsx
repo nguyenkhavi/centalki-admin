@@ -47,7 +47,7 @@ const StudentManagement = () => {
     () =>
       data.map((item) => ({
         name: item.displayName,
-        email: item.email,
+        email: item.email ?? item.providerData[0].email,
         createdAt: item.metadata?.creationTime
           ? // ? dayjs(item.metadata.creationTime).format("DD MMM YYYY HH:mm A")
             new Date(dayjs(item.metadata.creationTime))
