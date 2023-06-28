@@ -15,6 +15,7 @@ const columnsDataComplex = [
   {
     Header: "CREATED AT",
     accessor: "createdAt",
+    sortType: "datetime",
   },
   // {
   //   Header: "TOTAL EARNINGS",
@@ -38,7 +39,8 @@ const TeacherManagement = () => {
         name: item.displayName,
         email: item.email,
         createdAt: item.metadata?.creationTime
-          ? dayjs(item.metadata.creationTime).format("DD MMM YYYY HH:mm A")
+          ? // ? dayjs(item.metadata.creationTime).format("DD MMM YYYY HH:mm A")
+            new Date(dayjs(item.metadata.creationTime))
           : "",
         // earnings: item.detail?.currentEarnings || "",
         // rating: `${item.detail.average || 0} (${
