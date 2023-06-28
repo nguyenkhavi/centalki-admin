@@ -117,7 +117,12 @@ const ComplexTable = (props) => {
                     } else if (cell.column.id === "createdAt") {
                       data = (
                         <p className="flex items-center gap-2 text-sm font-bold text-navy-700 dark:text-white">
-                          {cell.value.toLocaleString("vi")}
+                          {cell.value.toLocaleString("en", {
+                            day: "2-digit",
+                            month: "short",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
                         </p>
                       );
                     } else

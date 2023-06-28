@@ -10,7 +10,7 @@ import { useMemo, useState } from "react";
 import { BsPlus } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdMail } from "react-icons/io";
-import { FaFacebook, FaApple } from "react-icons/fa";
+import { FaFacebook, FaApple, FaCopy } from "react-icons/fa";
 import InputField from "components/fields/InputField";
 import { useApproveTeacher } from "state/user";
 import { toast } from "react-toastify";
@@ -139,13 +139,27 @@ const StudentTable = (props) => {
                     } else if (cell.column.id === "createdAt") {
                       data = (
                         <p className="flex items-center gap-2 text-sm font-bold text-navy-700 dark:text-white">
-                          {cell.value.toLocaleString("vi")}
+                          {cell.value.toLocaleString("en", {
+                            day: "2-digit",
+                            month: "short",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
                         </p>
                       );
                     } else
                       data = (
                         <p className="flex items-center gap-2 text-sm font-bold text-navy-700 dark:text-white">
-                          {/* {cell.column.id === "name" && <Checkbox />} */}
+                          {cell.column.id === "uid" && (
+                            <button
+                              title="Copy UID"
+                              onClick={() => {
+                                navigator.clipboard.writeText(cell.value);
+                              }}
+                            >
+                              <FaCopy />
+                            </button>
+                          )}
                           {cell.value}
                         </p>
                       );

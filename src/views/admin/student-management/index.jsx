@@ -21,6 +21,10 @@ const columnsDataComplex = [
     accessor: "createdAt",
     sortType: "datetime",
   },
+  {
+    Header: "USER UID",
+    accessor: "uid",
+  },
   // {
   //   Header: "TOTAL EARNINGS",
   //   accessor: "earnings",
@@ -49,6 +53,7 @@ const StudentManagement = () => {
             new Date(dayjs(item.metadata.creationTime))
           : "",
         provider: item.providerData[0].providerId,
+        uid: item.uid,
         // earnings: item.detail?.currentEarnings || "",
         // rating: `${item.detail.average || 0} (${
         //   item.detail.ratingCount || 0
